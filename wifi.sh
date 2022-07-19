@@ -1,3 +1,5 @@
 #!/bin/bash
-sudo ./lnxrouter --ap wlo1 Adebile -p 12345678
+sudo ./lnxrouter --ap wlo1 <wifi-name> -p <password>
+
+
 
