@@ -1,5 +1,7 @@
 #!/bin/bash
 
+nmcli radio wifi off
+
 VERSION=0.6.6
 PROGNAME="$(basename $0)"
 
@@ -1200,6 +1202,7 @@ cleanup() {
     echo
     echo
     echo "Doing cleanup.. "
+    
     kill_processes
     echo "Undoing iptables changes .."
     clean_iptables > /dev/null
@@ -1208,7 +1211,8 @@ cleanup() {
     #pgid=$(ps opgid= $$ |awk '{print $1}' )
     #echo "Killing PGID $pgid ..."
     #kill -15 -$pgid
-    #sleep 1 
+    sleep 1 
+    nmcli radio wifi on
     echo "Cleaning up done"
     #kill -9 -$pgid
 }
